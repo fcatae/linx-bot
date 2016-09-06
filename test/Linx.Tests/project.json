@@ -7,7 +7,8 @@
     "System.Runtime.Serialization.Primitives": "4.1.1",
     "xunit": "2.1.0",
     "dotnet-test-xunit": "1.0.0-rc2-192208-24",
-    "LinxBot": { "target": "project" }
+    "LinxBot": { "target": "project" },
+    "Microsoft.Extensions.Configuration": "1.0.0"
   },
   "testRunner": "xunit",
   "frameworks": {
@@ -23,5 +24,6 @@
         "portable-net451+win8"
       ]
     }
-  }
+  },
+  "userSecretsId": "aspnet-LinxBot-20160906015605"
 }
