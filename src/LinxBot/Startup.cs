@@ -19,7 +19,17 @@ namespace LinxBot
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
+
+            if( env.IsDevelopment() )
+            {
+                builder.AddUserSecrets();
+            }
+
             Configuration = builder.Build();
+
+            string file = Configuration.GetValue<string>("xmlfile");
+            var loader = new Loader();
+            loader.Load(file);
         }
 
         public IConfigurationRoot Configuration { get; }
