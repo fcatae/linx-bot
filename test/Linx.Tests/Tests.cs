@@ -1,14 +1,15 @@
 ﻿using System;
 using Xunit;
 
-namespace Tests
+namespace Linx.Tests
 {
-    public class Tests
+    public class ProgramTest
     {
-        [Fact]
-        public void Test1() 
+        public static void Main(string[] args) 
         {
-            Assert.True(true);
+            var test = new LoaderTests();
+
+            test.Load_Rss_File();
         }
     }
 }

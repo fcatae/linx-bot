@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- This is a WordPress sample -->
+
+<rss version="2.0"
+	xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:wp="http://wordpress.org/export/1.2/"
+>
+
+  <channel>
+
+    <item>
+      <title>Installing WordPress</title>
+      <link>http://sample.azurewebsites.net/installing-wordpress/</link>
+      <pubDate>Sun, 17 Mar 2013 15:55:23 +0000</pubDate>
+      <dc:creator><![CDATA[sample]]></dc:creator>
+      <guid isPermaLink="false">http://themes.swishthemes.com/supportdesk/?p=27</guid>
+      <description></description>
+      <content:encoded>
+        <![CDATA[WordPress is a free and open source blogging tool and a content management system (CMS) based on PHP and MySQL. It has many features including a plug-in architecture and a template system. WordPress is used by over 14.7% of Alexa Internet's "top 1 million" websites and as of August 2011 manages 22% of all new websites. WordPress is currently the most popular blogging system in use on the Web.
+
+It was first released on May 27, 2003, by founders Matt Mullenweg and Mike Little as a fork of b2/cafelog. As of December 2011, version 3.0 had been downloaded over 65 million times.
+<h2>Features</h2>
+WordPress has a web template system using a template processor.
+<h3>Themes</h3>
+WordPress users may install and switch between themes. Themes allow users to change the look and functionality of a WordPress website or installation without altering the information content or structure. Themes may be installed using the WordPress "Appearance" administration tool or theme folders may be uploaded via FTP. The PHP and HTML code in themes can also be edited for more advanced customizations. There are several templates, some free, and some premium templates which a user has to buy.
+Plugins
+
+One very popular feature of WordPress is its rich plugin architecture which allows users and developers to extend its abilities beyond the features that are part of the base install; WordPress has a database of over 22,000 plugins with purposes ranging from SEO to adding widgets.
+<h3>Widgets</h3>
+Widgets are small modules that offer users drag-and-drop sidebar content placement and implementation of many plugins' extended abilities. Widgets allow WordPress developers to add functionality to their sites. These small modules can be used to add functionality such as a slideshow, Facebook Like box, small news slider, and more.
+<h3>Multi-user and multi-blogging</h3>
+Prior to WordPress 3.0, WordPress supported one blog per installation, although multiple concurrent copies may be run from different directories if configured to use separate database tables. WordPress Multi-User (WordPress MU, or just WPMU) was a fork of WordPress created to allow multiple blogs to exist within one installation that is able to be administered by a centralized maintainer. WordPress MU makes it possible for those with a website to host their own blogging community, as well as control and moderate all the blogs from a single dashboard. WordPress MU adds eight new data tables for each blog.
+
+WordPress MU merged with WordPress as part of the 3.0 release.
+<h3>Mobiles</h3>
+Native applications exist for WebOS, Android, iOS (iPhone, iPod Touch, iPad), Windows Phone, and BlackBerry. These applications, designed by Automattic allow a limited set of options, which include adding new blog posts and pages, commenting, moderating comments, replying to comments in addition to the ability to view the stats.
+<h3>Other features of note</h3>
+WordPress also features integrated link management; a search engine–friendly, clean permalink structure; the ability to assign nested, multiple categories to articles; and support for tagging of posts and articles. Automatic filters are also included, providing standardized formatting and styling of text in articles (for example, converting regular quotes to smart quotes). WordPress also supports the Trackback and Pingback standards for displaying links to other sites that have themselves linked to a post or article.
+<h2>History</h2>
+b2/cafelog, more commonly known as simply b2 or cafelog, was the precursor to WordPress. b2/cafelog was estimated to have been employed on approximately 2,000 blogs as of May 2003. It was written in PHP for use with MySQL by Michel Valdrighi, who is now a contributing developer to WordPress. Although WordPress is the official successor, another project, b2evolution, is also in active development.
+
+WordPress first appeared in 2003 as a joint effort between Matt Mullenweg and Mike Little to create a fork of b2. Christine Selleck Tremoulet, a friend of Mullenweg, suggested the name WordPress.
+
+In 2004 the licensing terms for the competing Movable Type package were changed by Six Apart and many of its most influential users migrated to WordPress. By October 2009 the 2009 Open Source content management system Market Share Report reached the conclusion that WordPress enjoyed the greatest brand strength of any open-source content-management systems.
+<h3>Awards</h3>
+<ul>
+	<li>In 2007 WordPress won a Packt Open Source CMS Award.</li>
+	<li>In 2009 WordPress won the Packt best Open Source CMS Awards.</li>
+	<li>In 2010 WordPress won the Hall of Fame CMS category in the 2010 Open Source Awards.</li>
+	<li>In 2011 WordPress won the Open Source Web App of the Year Award at The Critters.</li>
+</ul>
+<h3>Removal of sponsored themes</h3>
+On July 10, 2007, following a discussion on the WordPress ideas forum and a post by Mark Ghosh in his blog Weblog Tools Collection, Matt Mullenweg announced that the official WordPress theme directory at http://themes.wordpress.net would no longer host themes containing sponsored links. Although this move was criticized by designers and users of sponsored themes, it was applauded by WordPress users who consider such themes to be spam. The official WordPress theme directory ceased to accept any new themes, including those without sponsored links, shortly after the announcement was made. Sponsored themes are still available elsewhere, as well as free themes with additional sponsored links added by third parties.
+
+On July 18, 2008, a new theme directory opened on WordPress.org, styled along the same lines as the plug-ins directory. Any theme that is uploaded to it will be vetted, first by an automated program and then by a human.
+
+On December 12, 2008, over 200 themes were removed from the WordPress theme directory as they did not comply with GPL License requirements. Today, author mentions are permitted in each theme but the official policy does not allow for sponsorships or links to sites distributing non-GPL compatible themes. Non-GPL compliant themes are now hosted on other theme directories.
+Releases
+<h2>Future</h2>
+After the release of WordPress 3.0, the development team took a release cycle off from the WordPress software to focus on expanding and improving the WordPress community. WordPress 3.1 was subsequently released in February, 2011. With version 3.2, released on July 4, 2011, the minimum requirement PHP version and MySQL were raised as well.
+<h2>Development and support</h2>
+<h3>Key developers</h3>
+Matt Mullenweg and Mike Little were cofounders of the project. The core contributing developers include Ryan Boren, Mark Jaquith, Matt Mullenweg, Andrew Ozz, Peter Westwood and Andrew Nacin.
+
+WordPress is also developed by its community, including WP testers, a group of volunteers who test each release. They have early access to nightly builds, beta versions and release candidates. Errors are documented in a special mailing list, or the project's Trac tool.
+
+Though largely developed by the community surrounding it, WordPress is closely associated with Automattic, the company founded by Matt Mullenweg. On September 9, 2010, Automattic handed the WordPress trademark to the newly created WordPress Foundation, which is an umbrella organization supporting WordPress.org (including the software and archives for plugins and themes), bbPress and BuddyPress.
+<h3>WordCamp developer and user conferences</h3>
+"WordCamp" is the name given to all WordPress-related gatherings, both informal unconferences and more formal conferences. The first such event was WordCamp 2006 in August 2006 in San Francisco, which lasted one day and had over 500 attendees. The first WordCamp outside San Francisco was held in Beijing in September 2007. Since then, there have been over 150 WordCamps around the world, for an average of nearly one a week. WordCamp San Francisco, an annual event, remains the official annual conference of WordPress developers and users.
+<h3>Support</h3>
+As a free and open source platform, WordPress relies on peer support. Its primary support website is <a href="http://wordpress.org">WordPress.org</a>.]]>
+      </content:encoded>
+      <excerpt:encoded><![CDATA[WordPress is a free and open source blogging tool and a content management system (CMS) based on PHP and MySQL. It has many features including a plug-in architecture and a template system.]]></excerpt:encoded>
+      <wp:post_id>27</wp:post_id>
+      <wp:post_date>2013-03-17 15:55:23</wp:post_date>
+      <wp:post_date_gmt>2013-03-17 15:55:23</wp:post_date_gmt>
+      <wp:comment_status>open</wp:comment_status>
+      <wp:ping_status>open</wp:ping_status>
+      <wp:post_name>installing-wordpress</wp:post_name>
+      <wp:status>publish</wp:status>
+      <wp:post_parent>0</wp:post_parent>
+      <wp:menu_order>0</wp:menu_order>
+      <wp:post_type>post</wp:post_type>
+      <wp:post_password></wp:post_password>
+      <wp:is_sticky>0</wp:is_sticky>
+      <category domain="category" nicename="how-to"><![CDATA[How-To]]></category>
+      <category domain="post_tag" nicename="install"><![CDATA[install]]></category>
+      <category domain="post_tag" nicename="wordpress"><![CDATA[wordpress]]></category>
+      <wp:postmeta>
+        <wp:meta_key>_edit_last</wp:meta_key>
+        <wp:meta_value><![CDATA[1]]></wp:meta_value>
+      </wp:postmeta>
+      <wp:postmeta>
+        <wp:meta_key>_thumbnail_id</wp:meta_key>
+        <wp:meta_value><![CDATA[152]]></wp:meta_value>
+      </wp:postmeta>
+      <wp:comment>
+        <wp:comment_id>81</wp:comment_id>
+        <wp:comment_author><![CDATA[Cıvata]]></wp:comment_author>
+        <wp:comment_author_email></wp:comment_author_email>
+        <wp:comment_author_url>http://dunno.dynu.com/civatacilar</wp:comment_author_url>
+        <wp:comment_author_IP>54.171.83.145</wp:comment_author_IP>
+        <wp:comment_date>2016-06-14 11:20:11</wp:comment_date>
+        <wp:comment_date_gmt>2016-06-14 11:20:11</wp:comment_date_gmt>
+        <wp:comment_content><![CDATA[[&#8230;] http://sample.azurewebsites.net/installing-wordpress/ [&#8230;]]]></wp:comment_content>
+        <wp:comment_approved>0</wp:comment_approved>
+        <wp:comment_type>pingback</wp:comment_type>
+        <wp:comment_parent>0</wp:comment_parent>
+        <wp:comment_user_id>0</wp:comment_user_id>
+      </wp:comment>
+    </item>
+  </channel>
+</rss>
