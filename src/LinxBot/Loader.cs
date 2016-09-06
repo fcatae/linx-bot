@@ -13,12 +13,12 @@ namespace LinxBot
         {
         }
 
-        public IEnumerable<Article> Load(string filepath)
+        public IEnumerable<Article> LoadFromFile(string filepath)
         {
-            return Load(filepath, null);
+            return LoadFromFile(filepath, null);
         }
 
-        public IEnumerable<Article> Load(string filepath, Func<Article,bool> filter)
+        public IEnumerable<Article> LoadFromFile(string filepath, Func<Article,bool> filter)
         {
             string XMLNS_WP = "http://wordpress.org/export/1.2/";
             string XMLNS_CONTENT = "http://purl.org/rss/1.0/modules/content/";
@@ -43,15 +43,5 @@ namespace LinxBot
 
             return filtered_articles;
         }
-    }
-
-    public class Article
-    {
-        public int Id { get; set; }
-        public string Title { get; set; }
-        public string Link { get; set; }
-        public string Content { get; set; }
-        public string PostType { get; set; }
-        public IEnumerable<string> Categories { get; set; }
     }
 }

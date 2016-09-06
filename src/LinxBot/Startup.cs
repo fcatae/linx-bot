@@ -29,7 +29,7 @@ namespace LinxBot
 
             string file = Configuration.GetValue<string>("xmlfile");
             var loader = new Loader();
-            loader.Load(file);
+            loader.LoadFromFile(file);
         }
 
         public IConfigurationRoot Configuration { get; }

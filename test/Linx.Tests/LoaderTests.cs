@@ -14,7 +14,7 @@ namespace Linx.Tests
         {
             var loader = new Loader();
 
-            var items = new List<Article>(loader.Load(@"xml\rss.xml"));
+            var items = new List<Article>(loader.LoadFromFile(@"xml\rss.xml"));
 
             Assert.Equal(items.Count, 1);
             Assert.Equal(items[0].Title, "Installing WordPress");            
