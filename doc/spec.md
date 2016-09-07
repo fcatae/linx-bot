@@ -1,21 +1,40 @@
+Esse é um problema de classificação.
+
 # V0. O Problema
 
 Algoritmo de search com base no conteúdo nem sempre retorna o resultado desejado.
 
-# V1. Separação de Conteúdo
+    Busca textual.
 
-## Normalização de dados
+# V1. Preparação do Conteúdo
 
-A tarefa de geração de conteúdo é diferente de responder dúvidas.
-
-A vantagem de separar em criação de conteúdo e responder perguntas é simples:
-a geração de conteúdo é espontânea, enquanto que as perguntas podem ser criadas 
+A geração de conteúdo é espontânea, enquanto que as perguntas podem ser criadas 
 de acordo com sua frequência.
 
-Muitas vezes o conteúdo já existe. A equipe de suporte (Ex: 1000 pessoas) pode 
-escrever conteúdo no momento em que achar necessário.
+    O processo é fazer uma busca sobre as perguntas. Caso não encontre, então faz 
+    o fallback para o processo de busca textual.
 
-Podemos dedicar tempo em escolher as perguntas mais relevantes e frequentes, 
-orientando o usuário ao conteúdo adequado. A automação do suporte pode ser menor
-(ex: 50 pessoas) e dedicar tempo para identificar as perguntas importantes.
+# V2. Organização em diretório
 
+As perguntas (e os artigos?) podem ser agrupadas por assunto, criando uma
+estrutura de diretório.
+
+    O processo é fazer uma busca sobre as perguntas. Caso não encontre, então faz 
+    perguntas sobre qual o diretório e depois realiza o processo de busca textual.
+
+# V3. Identificação de domínio
+
+A triage inicial busca identificar qual o domínio da pergunta. Com base nas
+informações obtidas, iniciamos o filtro sobre um diretório e procuramos as 
+perguntas associadas. 
+
+* Website 
+    * Hotsite
+    * Header | Footer
+    * Vitrine
+    * Avançado
+* Pagamento
+* Newsletter
+
+O treinamento é feito usando o LUIS, usando intenção = tag e identificadores de
+entidades.
