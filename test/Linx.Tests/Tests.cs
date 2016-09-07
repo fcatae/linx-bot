@@ -6,8 +6,9 @@ namespace Linx.Tests
 {
     public class Tests
     {
+        public static string XMLFILE;
         public static string DATABASE;
-        
+
         static Tests()
         {
             var builder = new ConfigurationBuilder()
@@ -18,6 +19,7 @@ namespace Linx.Tests
             var config = builder.Build();
 
             DATABASE = config["database"];
+            XMLFILE = config["xmlfile"];
 
             if(DATABASE == null)
                 throw new ArgumentNullException("database");
@@ -27,7 +29,7 @@ namespace Linx.Tests
         {
             var test = new RepositoryTests();
 
-            test.Truncate_Articles();
+            test.Find_Article_Using_Keywords();
         }
     }
 }

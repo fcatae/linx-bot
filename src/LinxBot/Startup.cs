@@ -29,7 +29,14 @@ namespace LinxBot
 
             string file = Configuration.GetValue<string>("xmlfile");
             var loader = new Loader();
-            loader.LoadFromFile(file);
+            var articles = loader.LoadFromFile(file);
+
+            var repo = new Repository(Configuration["database"]);
+
+            foreach(var art in articles)
+            {
+                repo.Save(art);
+            }
         }
 
         public IConfigurationRoot Configuration { get; }

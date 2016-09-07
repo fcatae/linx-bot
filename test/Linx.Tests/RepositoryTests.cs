@@ -36,5 +36,15 @@ namespace Linx.Tests
 
             repository.Truncate();
         }
+
+        [Fact]
+        public void Find_Article_Using_Keywords()
+        {
+            var repository = new Repository(Tests.DATABASE);
+
+            var ret = new List<Article>(repository.FindArticle(new string[] { "template", "html" }));
+
+            Assert.True(ret.Count > 0);
+        }
     }
 }

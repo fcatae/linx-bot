@@ -25,11 +25,24 @@ namespace LinxBot
 
         public int Save(Article article)
         {
-            string insertCommand = "insert tbArticles(Title,Link,Content,PostType) values (@Title,@Link,@Content,@PostType); select scope_identity()";
+            string insertCommand = "insert tbArticles(Title,Link,Content,PostType,Tags) values (@Title,@Link,@Content,@PostType,@Tags); select scope_identity()";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                var ret = connection.ExecuteScalar<int>(insertCommand, new { article.Title, article.Link, article.Content, article.PostType });
+                var ret = connection.ExecuteScalar<int>(insertCommand, new { article.Title, article.Link, article.Content, article.PostType, Tags = String.Join(",", article.Categories) });
+
+                return ret;
+            }
+        }
+
+        public IEnumerable<Article> FindArticle(string[] keywords)
+        {
+            string query = "select * from tbArticles where posttype='st_kb' and freetext(content, @search)";
+            string search = String.Join(" AND ", keywords);
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                var ret = connection.Query<Article>(query, new { search });
 
                 return ret;
             }

@@ -19,5 +19,20 @@ namespace Linx.Tests
             Assert.Equal(items.Count, 1);
             Assert.Equal(items[0].Title, "Installing WordPress");            
         }
+
+        [Fact]
+        public void Load_All_Items()
+        {
+            string file = Tests.XMLFILE;
+            var loader = new Loader();
+            var articles = loader.LoadFromFile(file);
+
+            var repo = new Repository(Tests.DATABASE);
+
+            foreach (var art in articles)
+            {
+                repo.Save(art);
+            }
+        }
     }
 }
