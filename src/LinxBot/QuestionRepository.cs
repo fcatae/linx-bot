@@ -32,7 +32,7 @@ namespace LinxBot
 
         public IEnumerable<Article> FindQuestion(string[] keywords)
         {
-            string query = "select * from tbArticles where posttype='st_kb' and freetext(content, @search)";
+            string query = "declare @s nvarchar(100) = 'template and html'; select * from tbArticles where Id in (select ArticleId from fnFindQuestions(@s))";
             string search = String.Join(" AND ", keywords);
 
             using (SqlConnection connection = new SqlConnection(_connectionString))

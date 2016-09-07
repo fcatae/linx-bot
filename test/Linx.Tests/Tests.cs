@@ -29,7 +29,7 @@ namespace Linx.Tests
         {
             var test = new QuestionTests();
 
-            test.Associate_Known_Answer();
+            test.Find_Article_Using_Keywords();
         }
     }
 }
