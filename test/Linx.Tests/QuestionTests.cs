@@ -34,8 +34,8 @@ namespace Linx.Tests
 
             Question question = new Question()
             {
-                ArticleId = 1,
-                Text = "Como criar um post no wordpress?"
+                ArticleId = articleHotsite,
+                Text = "Como criar um template html?"
             };
 
             repository.Save(question);

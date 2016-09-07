@@ -29,7 +29,7 @@ namespace Linx.Tests
         {
             var test = new QuestionTests();
 
-            test.Create_Question();
+            test.Associate_Known_Answer();
         }
     }
 }
