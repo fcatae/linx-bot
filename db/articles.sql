@@ -15,7 +15,7 @@ CREATE FULLTEXT CATALOG ft_search AS DEFAULT
 CREATE FULLTEXT INDEX ON tbArticles(Content) KEY INDEX PK_Articles;
 
 select * from tbArticles where posttype='st_kb' and freetext(content, 'template and html')
-select * from tbArticles where posttype='st_kb' and contains(content, 'javascript')
+select * from tbArticles where posttype='st_kb' and freetext(content, 'hotsite and fake')
 
 declare @s varchar(100) = 'template and html'
 select * from tbArticles where posttype='st_kb' and freetext(content, @s)
@@ -30,5 +30,15 @@ create table tbQuestions(
 	Tags VARCHAR(1000)
 )
 
-CREATE FULLTEXT INDEX ON tbQuestions(Text) KEY INDEX PK_Questions;
+CREATE FULLTEXT INDEX ON tbQuestions(Text,Tags) KEY INDEX PK_Questions;
+
+select * from tbQuestions
+
+ALTER function fnFindQuestions(@s nvarchar(100))
+returns table
+return select q.ArticleId, q.Text from freetexttable(tbQuestions,*, @s) qs join tbQuestions q on qs.[key]=q.Id
+
+select * from tbArticles where Id in (select ArticleId from fnFindQuestions(N'template and html'))
+
+
 
