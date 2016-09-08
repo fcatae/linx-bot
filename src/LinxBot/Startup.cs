@@ -33,6 +33,8 @@ namespace LinxBot
 
             var repo = new Repository(Configuration["database"]);
 
+            repo.Truncate();
+            
             foreach(var art in articles)
             {
                 repo.Save(art);

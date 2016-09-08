@@ -31,7 +31,16 @@ namespace LinxBot
 
         public string AskQuestion(string question)
         {
-            return "I don't know!";
+            string[] keywords = question.Trim(' ', '?').Split(' ');
+
+            var articles = new List<Article>(_repository.FindArticle(keywords));
+
+            if( articles.Count == 0 )
+            {
+                return $"Não encontrei artigos";
+            }
+            
+            return $"Encontrei {articles.Count} artigos. Veja esse link {articles[0].Link}";
         }
 
         public void SetLink(string link)
