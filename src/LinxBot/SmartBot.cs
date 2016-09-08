@@ -16,6 +16,8 @@ namespace LinxBot
 
     public class SmartBot : ISmartBot
     {
+        string _currentLink = null;
+
         public void Reset()
         {
         }
@@ -27,6 +29,7 @@ namespace LinxBot
 
         public void SetLink(string link)
         {
+            _currentLink = link;
         }
 
         public void DefineQuestion(string question)
