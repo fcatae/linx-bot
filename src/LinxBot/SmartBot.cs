@@ -20,6 +20,7 @@ namespace LinxBot
         QuestionRepository _qrepository;
 
         int _currentArticleId = 0;
+        string _currentCategory;
 
         public SmartBot(IRepository repository, IQuestionRepository qrepository)
         {
@@ -40,6 +41,11 @@ namespace LinxBot
 
             if( questions.Count == 0 && articles.Count == 0 )
             {
+                if( question.Length < 4 || question.Contains("??"))
+                {
+                    return "Você está buscando sobre Website, Pagamento ou Newsletter?";
+                }
+
                 return $"Não encontrei artigos";
             }
             
@@ -53,6 +59,13 @@ namespace LinxBot
 
         public void SetLink(string link)
         {
+            if( link.StartsWith("category://") )
+            {
+                _currentArticleId = 0;
+                _currentCategory = link.Substring("category://".Length);
+                return;
+            }
+
             var article = _repository.FindArticleByUrl(link);
 
             if( article == null )
@@ -61,6 +74,7 @@ namespace LinxBot
             }
 
             _currentArticleId = article.Id;
+            _currentCategory = null;
         }
 
         public void DefineQuestion(string text)
@@ -68,14 +82,16 @@ namespace LinxBot
             var question = new Question()
             {
                 ArticleId = _currentArticleId,
-                Text = text
+                Text = text,
+                Tags = _currentCategory
             };
 
             _qrepository.Save(question);
         }
         
-        public void SetCategory(string question)
+        public void SetCategory(string category)
         {
+            _currentCategory = category;
         }
     }
 }

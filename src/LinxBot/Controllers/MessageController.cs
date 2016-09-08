@@ -47,6 +47,8 @@ namespace LinxBot.Controllers
                 {
                     string category = text.Substring("busca em: ".Length);
                     _bot.SetCategory(category);
+
+                    output = $"Você está buscando em {category}. O que deseja saber?";
                 }
                 else if (text.EndsWith("?"))
                 {

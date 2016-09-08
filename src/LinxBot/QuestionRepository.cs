@@ -25,11 +25,11 @@ namespace LinxBot
 
         public int Save(Question question)
         {
-            string insertCommand = "insert tbQuestions(ArticleId,[Text]) values (@ArticleId,@Text); select scope_identity()";
+            string insertCommand = "insert tbQuestions(ArticleId,[Text], [Tags]) values (@ArticleId,@Text, @Tags); select scope_identity()";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                var ret = connection.ExecuteScalar<int>(insertCommand, new { question.ArticleId, question.Text });
+                var ret = connection.ExecuteScalar<int>(insertCommand, new { question.ArticleId, question.Text, question.Tags });
 
                 return ret;
             }
