@@ -17,6 +17,7 @@ namespace LinxBot
     public class SmartBot : ISmartBot
     {
         string _currentLink = null;
+        int _currentArticleId = 0;
 
         public void Reset()
         {

@@ -46,5 +46,26 @@ namespace Linx.Tests
 
             Assert.True(ret.Count > 0);
         }
+
+        [Fact]
+        public void Find_Article_By_Url()
+        {
+            var repository = new Repository(Tests.DATABASE);
+
+            var article = repository.FindArticleByUrl("http://linxb2chelp.azurewebsites.net/knowledgebase/e-mails-automaticos/");
+
+            Assert.True(article.Id > 0);
+        }
+
+        [Fact]
+        public void Test_Invalid_Article_By_Url()
+        {
+            var repository = new Repository(Tests.DATABASE);
+
+            var article = repository.FindArticleByUrl("http://should.not.exist.this.url.in.the.database/");
+
+            Assert.True(article == null);
+        }
+
     }
 }

@@ -47,5 +47,17 @@ namespace LinxBot
                 return ret;
             }
         }
+
+        public Article FindArticleByUrl(string url)
+        {
+            string query = "select * from tbArticles where link=@url";
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                var ret = connection.Query<Article>(query, new { url }).FirstOrDefault();
+
+                return ret;
+            }
+        }
     }
 }

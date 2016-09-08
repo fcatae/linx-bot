@@ -27,9 +27,9 @@ namespace Linx.Tests
 
         public static void Main(string[] args) 
         {
-            var test = new QuestionTests();
+            var test = new RepositoryTests();
 
-            test.Find_Article_Using_Keywords();
+            test.Test_Invalid_Article_By_Url();
         }
     }
 }
