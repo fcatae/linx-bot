@@ -33,25 +33,22 @@ namespace LinxBot.Controllers
                     _bot.Reset();
                     output = $"Olá {activity.From.Name}!";
                 }
-                else
-                if (text.StartsWith("link:"))
+                else if (text.StartsWith("link:"))
                 {
                     string link = text.Split(' ')[1];
                     _bot.SetLink(link);
                 }
-                else
-                if (text.StartsWith("pergunta: "))
+                else if (text.StartsWith("pergunta: "))
                 {
                     string question = text.Substring("pergunta: ".Length);
                     _bot.DefineQuestion(question);
                 }
-                if (text.StartsWith("busca em: "))
+                else if (text.StartsWith("busca em: "))
                 {
                     string category = text.Substring("busca em: ".Length);
                     _bot.SetCategory(category);
                 }
-                else
-                if (text.EndsWith("?"))
+                else if (text.EndsWith("?"))
                 {
                     output = _bot.AskQuestion(text);
                 }

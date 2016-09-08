@@ -7,7 +7,12 @@ using Dapper;
 
 namespace LinxBot
 {
-    public class QuestionRepository
+    public interface IQuestionRepository
+    {
+
+    }
+
+    public class QuestionRepository : IQuestionRepository
     {
         private string _connectionString;
         private SqlConnection _connection;
@@ -32,7 +37,7 @@ namespace LinxBot
 
         public IEnumerable<Article> FindQuestion(string[] keywords)
         {
-            string query = "declare @s nvarchar(100) = 'template and html'; select * from tbArticles where Id in (select ArticleId from fnFindQuestions(@s))";
+            string query = "declare @s nvarchar(100) = @search; select * from tbArticles where Id in (select ArticleId from fnFindQuestions(@s))";
             string search = String.Join(" AND ", keywords);
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
