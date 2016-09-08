@@ -48,6 +48,7 @@ namespace LinxBot
             services.AddMvc();
 
             services.AddSingleton<ISmartBot, SmartBot>();
+            services.AddSingleton<IRepository>(sp => new Repository(Configuration["database"]));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

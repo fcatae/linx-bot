@@ -16,8 +16,14 @@ namespace LinxBot
 
     public class SmartBot : ISmartBot
     {
-        string _currentLink = null;
+        Repository _repository;
+
         int _currentArticleId = 0;
+
+        public SmartBot(IRepository repository)
+        {
+            this._repository = (Repository)repository;
+        }
 
         public void Reset()
         {
@@ -30,7 +36,14 @@ namespace LinxBot
 
         public void SetLink(string link)
         {
-            _currentLink = link;
+            var article = _repository.FindArticleByUrl(link);
+
+            if( article == null )
+            {
+                throw new InvalidOperationException("Invalid link");
+            }
+
+            _currentArticleId = article.Id;
         }
 
         public void DefineQuestion(string question)

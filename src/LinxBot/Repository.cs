@@ -7,7 +7,11 @@ using Dapper;
 
 namespace LinxBot
 {
-    public class Repository
+    public interface IRepository
+    {
+    }
+
+    public class Repository : IRepository
     {
         private string _connectionString;
         private SqlConnection _connection;
