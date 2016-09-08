@@ -34,6 +34,12 @@ namespace LinxBot
 
         public string AskQuestion(string question)
         {
+            if (question.Length < 4 || question.Contains("??"))
+            {
+                return "Você está buscando sobre Website, Pagamento ou Newsletter?";
+            }
+
+
             string[] keywords = question.Trim(' ', '?')
                                         .Split(' ')
                                         .Where(k => k.Length > 2)
@@ -49,11 +55,6 @@ namespace LinxBot
 
             if( questions.Count == 0 && articles.Count == 0 )
             {
-                if( question.Length < 4 || question.Contains("??"))
-                {
-                    return "Você está buscando sobre Website, Pagamento ou Newsletter?";
-                }
-
                 if (question.Contains("javascript"))
                 {
                     _currentCategory = "programação";

@@ -34,7 +34,7 @@ CREATE FULLTEXT INDEX ON tbQuestions(Text,Tags) KEY INDEX PK_Questions;
 
 select * from tbQuestions
 
-ALTER function fnFindQuestions(@s nvarchar(100))
+create function fnFindQuestions(@s nvarchar(100))
 returns table
 return select q.ArticleId, q.Text from containstable(tbQuestions,*, @s) qs join tbQuestions q on qs.[key]=q.Id
 
@@ -45,4 +45,3 @@ select ArticleId from fnFindQuestions(N'como and tema')
 select * from fnFindQuestions(N'como and tema')
 
 
-insert 
