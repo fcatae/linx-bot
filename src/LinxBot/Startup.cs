@@ -32,9 +32,11 @@ namespace LinxBot
             var articles = loader.LoadFromFile(file);
 
             var repo = new Repository(Configuration["database"]);
+            var qrepo = new QuestionRepository(Configuration["database"]);
 
             repo.Truncate();
-            
+            qrepo.Truncate();
+
             foreach(var art in articles)
             {
                 repo.Save(art);

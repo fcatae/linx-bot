@@ -90,6 +90,7 @@ Da mesma forma, podemos responder perguntas genéricas com mais perguntas:
     link: category://website
     pergunta: como mudar a tela?
 
+
 Bot responde:
 
 ```

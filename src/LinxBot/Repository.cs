@@ -35,6 +35,8 @@ namespace LinxBot
             {
                 var ret = connection.ExecuteScalar<int>(insertCommand, new { article.Title, article.Link, article.Content, article.PostType, Tags = String.Join(",", article.Categories) });
 
+                article.Id = ret;
+
                 return ret;
             }
         }

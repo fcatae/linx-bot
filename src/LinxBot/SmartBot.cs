@@ -34,7 +34,10 @@ namespace LinxBot
 
         public string AskQuestion(string question)
         {
-            string[] keywords = question.Trim(' ', '?').Split(' ');
+            string[] keywords = question.Trim(' ', '?')
+                                        .Split(' ')
+                                        .Where(k => k.Length > 2)
+                                        .ToArray();
 
             var questions = new List<Article>(_qrepository.FindQuestion(keywords));
             var articles = new List<Article>(_repository.FindArticle(keywords));
@@ -59,22 +62,31 @@ namespace LinxBot
 
         public void SetLink(string link)
         {
-            if( link.StartsWith("category://") )
-            {
-                _currentArticleId = 0;
-                _currentCategory = link.Substring("category://".Length);
-                return;
-            }
-
             var article = _repository.FindArticleByUrl(link);
 
             if( article == null )
             {
-                throw new InvalidOperationException("Invalid link");
+                if (!link.StartsWith("category://"))
+                    throw new InvalidOperationException("Invalid link");
+
+                string category = link.Substring("category://".Length);
+
+                var articleCategory = new Article()
+                {
+                    Link = "category://" + category,
+                    Categories = new string[] { },
+                    Content = "",
+                    PostType = "st_kb",
+                    Title = "category://" + category
+                };
+
+                _repository.Save(articleCategory);
+
+                article = articleCategory;
             }
 
             _currentArticleId = article.Id;
-            _currentCategory = null;
+            //_currentCategory = null;
         }
 
         public void DefineQuestion(string text)

@@ -35,6 +35,11 @@ namespace LinxBot
             }
         }
 
+        public void Truncate()
+        {
+            _connection.ExecuteScalar("truncate table tbQuestions");
+        }
+
         public IEnumerable<Article> FindQuestion(string[] keywords)
         {
             string query = "declare @s nvarchar(100) = @search; select * from tbArticles where Id in (select ArticleId from fnFindQuestions(@s))";
