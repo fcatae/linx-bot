@@ -10,6 +10,13 @@ namespace LinxBot.Controllers
     [Route("api/[controller]")]
     public class MessagesController : Controller
     {
+        ISmartBot _bot;
+
+        public MessagesController(ISmartBot bot)
+        {
+            this._bot = bot;
+        }
+
         [HttpPost]
         public void Post([FromBody] Activity activity)
         {
@@ -20,16 +27,36 @@ namespace LinxBot.Controllers
                 var text = activity.Text.Trim();
                 string output = null;
 
-                var bot = new SmartBot();
-
                 // Ola!
-                if(text.EndsWith("!"))
+                if (text.EndsWith("!"))
                 {
-                    bot.Reset();
+                    _bot.Reset();
                     output = $"Olá {activity.From.Name}!";
                 }
-                    
-                if( output != null )
+                else
+                if (text.StartsWith("link:"))
+                {
+                    string link = text.Split(' ')[1];
+                    _bot.SetLink(link);
+                }
+                else
+                if (text.StartsWith("pergunta: "))
+                {
+                    string question = text.Substring("pergunta: ".Length);
+                    _bot.DefineQuestion(question);
+                }
+                if (text.StartsWith("busca em: "))
+                {
+                    string category = text.Substring("busca em: ".Length);
+                    _bot.SetCategory(category);
+                }
+                else
+                if (text.EndsWith("?"))
+                {
+                    output = _bot.AskQuestion(text);
+                }
+
+                if ( output != null )
                 {
                     var message = activity.CreateReply(output);
 
