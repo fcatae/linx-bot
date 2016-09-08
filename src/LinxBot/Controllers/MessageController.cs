@@ -17,9 +17,24 @@ namespace LinxBot.Controllers
             {
                 var client = new ConnectorClient(new Uri(activity.ServiceUrl));
 
-                var message = activity.CreateReply("Hello");
+                var text = activity.Text.Trim();
+                string output = null;
 
-                client.Conversations.ReplyToActivity(message);
+                var bot = new SmartBot();
+
+                // Ola!
+                if(text.EndsWith("!"))
+                {
+                    bot.Reset();
+                    output = $"Olá {activity.From.Name}!";
+                }
+                    
+                if( output != null )
+                {
+                    var message = activity.CreateReply(output);
+
+                    client.Conversations.ReplyToActivity(message);
+                }
             }
         }
     }
