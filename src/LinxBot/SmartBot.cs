@@ -42,6 +42,11 @@ namespace LinxBot
             var questions = new List<Article>(_qrepository.FindQuestion(keywords));
             var articles = new List<Article>(_repository.FindArticle(keywords));
 
+            if( question == "luis?" )
+            {
+                return "Language Understanding: http://dialogice2.cloudapp.net/";
+            }
+
             if( questions.Count == 0 && articles.Count == 0 )
             {
                 if( question.Length < 4 || question.Contains("??"))
@@ -49,12 +54,31 @@ namespace LinxBot
                     return "Você está buscando sobre Website, Pagamento ou Newsletter?";
                 }
 
+                if (question.Contains("javascript"))
+                {
+                    _currentCategory = "programação";
+                }
+
+                if( _currentCategory != null )
+                {
+                    return $"Você está buscando sobre {_currentCategory}. O que deseja saber?";
+                }
+
                 return $"Não encontrei artigos";
             }
             
             if(questions.Count > 0)
             {
-                return $"Encontrei esse link {questions[0].Link}";
+                string link = questions[0].Link;
+
+                if (link.StartsWith("category://"))
+                {
+                    string category = link.Substring("category://".Length);
+
+                    return $"Você está buscando sobre {category}. O que deseja saber?";
+                }
+
+                return $"Encontrei esse link {link}";
             }
 
             return $"Encontrei {articles.Count} artigos. Veja esse link {articles[0].Link}";
