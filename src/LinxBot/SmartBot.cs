@@ -30,6 +30,8 @@ namespace LinxBot
 
         public void Reset()
         {
+            _currentArticleId = 0;
+            _currentCategory = null;
         }
 
         public string AskQuestion(string question)
